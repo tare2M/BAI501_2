@@ -1,0 +1,62 @@
+{% block content %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>F21 BAI501 Project</title>
+
+<h1 style="color: #5e9ca0; text-align: center;">F21 BAI501 Project&nbsp;</h1>
+<h2 style="color: #2e6c80; text-align: center;">A Django website using A* Algorithm to find the shortest road between two cities in Romania:</h2>
+</head>
+
+<body>
+
+<p style="text-align: center;">By using this website you can find the shortest road between two cities in Romania you just need to select the city you want using the two-button below.</p>
+
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><strong>This website was created by Tarek Mshalwat &amp; Ali Ahmad &amp; Shamaa Alfrihat &amp; Bashar Zantah Under the supervision of Dr. Basil Al-Khatib.</strong></p>
+<p style="text-align: center;"><strong>&nbsp;</strong></p>
+<div class="container">
+
+
+
+<form action="processed" method="post">
+  {% csrf_token %}
+
+  <p style="text-align:center;">
+  <label for="Source">Select  your Source    : </label>
+
+  <select name="Source" id="Source">
+    {%for graph in mygraph reversed%}
+    <option value="{{graph.city_name1}}">{{graph.city_name1}}</option>
+    {%endfor%}
+  </select>
+
+
+  <p style="text-align: center;">
+  <label for="Goal">Select your Destination:</label>
+  <select name="Goal" id="Goal">
+    {%for graph in mygraph reversed%}
+    <option value="{{graph.city_name2}}">{{graph.city_name2}}</option>
+    {%endfor%}
+
+  </select>
+
+  <br><br>
+    <input type="submit" value="SUBMIT"style="background-color: #2b2301; color: #fff; display: inline-block; padding: 3px 10px; font-weight: bold; border-radius: 5px;">
+</form>
+<p style="text-align:center;"><strong>To edit existing cities : </strong><a href="{% url 'edit' %}" style="background-color: #2b2301; color: #fff; display: inline-block; padding: 3px 10px; font-weight: bold; border-radius: 5px;">EDIT</a></p>
+
+
+
+
+
+</div>
+</body>
+</html>
+{% endblock content %}
