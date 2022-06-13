@@ -29,10 +29,10 @@ def edit(request):
     }
     return HttpResponse(template.render(context, request))
 
-def edit2(request):
+def editx(request):
 
     myheuristic = heuristic.objects.all().values()
-    template = loader.get_template('edit2.html')
+    template = loader.get_template('editx.html')
     context = {
 
         'myheuristic': myheuristic,
@@ -61,7 +61,7 @@ def addform2(request):
     f = request.POST['heuristic_value']
     Heuristic = heuristic(heuristic_name=e, heuristic_value=f)
     Heuristic.save()
-    return HttpResponseRedirect(reverse('edit2'))
+    return HttpResponseRedirect(reverse('editx'))
 
 def delete1(request, id):
     Graph = graph.objects.get(id=id)
@@ -71,7 +71,7 @@ def delete1(request, id):
 def delete2(request, id):
     Heuristic = heuristic.objects.get(id=id)
     Heuristic.delete()
-    return HttpResponseRedirect(reverse('edit2'))
+    return HttpResponseRedirect(reverse('editx'))
 
 def update(request, id):
 
@@ -115,7 +115,7 @@ def updaterecord2(request, id):
     myheuristic.heuristic_name=e
     myheuristic.heuristic_value=f
     myheuristic.save()
-    return HttpResponseRedirect(reverse('edit2'))
+    return HttpResponseRedirect(reverse('editx'))
 
 class Graph2:
     # Initialize the class
