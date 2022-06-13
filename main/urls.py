@@ -10,6 +10,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('processed', views.processed, name='processed'),
     path('edit', views.edit, name='edit'),
+    path('edit2', views.edit2, name='edit2'),
     path('add1/', views.add1, name='add1'),
     path('add2/', views.add2, name='add2'),
 
@@ -19,6 +20,7 @@ urlpatterns = [
     path('delete1/<int:id>', views.delete1, name='delete1'),
     path('delete2/<int:id>', views.delete2, name='delete2'),
     path('update/<int:id>', views.update, name='update'),
+    path('update2/<int:id>', views.update2, name='update2'),
     path('update/updaterecord/<int:id>', views.updaterecord, name='updaterecord'),
     #path('index/', views.index, name="index"),
     #path('single/<slug:slug>', views.single, name="single"),

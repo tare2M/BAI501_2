@@ -21,11 +21,20 @@ def index(request):
 def edit(request):
 
     mygraph= graph.objects.all().values()
-    myheuristic = heuristic.objects.all().values()
+
     template = loader.get_template('edit.html')
     context = {
-
         'mygraph': mygraph,
+
+    }
+    return HttpResponse(template.render(context, request))
+
+def edit2(request):
+
+    myheuristic = heuristic.objects.all().values()
+    template = loader.get_template('edit2.html')
+    context = {
+
         'myheuristic': myheuristic,
     }
     return HttpResponse(template.render(context, request))
@@ -52,47 +61,62 @@ def addform2(request):
     f = request.POST['heuristic_value']
     Heuristic = heuristic(heuristic_name=e, heuristic_value=f)
     Heuristic.save()
-    return HttpResponseRedirect(reverse('edit'))
+    return HttpResponseRedirect(reverse('edit2'))
 
 def delete1(request, id):
-
-
     Graph = graph.objects.get(id=id)
     Graph.delete()
     return HttpResponseRedirect(reverse('edit'))
+
 def delete2(request, id):
     Heuristic = heuristic.objects.get(id=id)
     Heuristic.delete()
-    return HttpResponseRedirect(reverse('edit'))
+    return HttpResponseRedirect(reverse('edit2'))
 
 def update(request, id):
 
     mygraph= graph.objects.get(id=id)
-    myheuristic = heuristic.objects.get(id=id)
+
     template = loader.get_template('update.html')
     context = {
 
         'mygraph': mygraph,
+
+    }
+    return HttpResponse(template.render(context, request))
+
+def update2(request, id):
+
+
+    myheuristic = heuristic.objects.get(id=id)
+    template = loader.get_template('update2.html')
+    context = {
+
+
         'myheuristic': myheuristic,
     }
     return HttpResponse(template.render(context, request))
+
 def updaterecord(request, id):
     b = request.POST['city_name1']
     c = request.POST['city_name2']
     d = request.POST['actual_distance']
-
-    e = request.POST['heuristic_name']
-    f = request.POST['heuristic_value']
     mygraph= graph.objects.get(id=id)
-    myheuristic = heuristic.objects.get(id=id)
     mygraph.city_name1=b
     mygraph.city_name2=c
     mygraph.actual_distance=d
+    mygraph.save()
+    return HttpResponseRedirect(reverse('edit'))
+
+def updaterecord2(request, id):
+    e = request.POST['heuristic_name']
+    f = request.POST['heuristic_value']
+    myheuristic = heuristic.objects.get(id=id)
     myheuristic.heuristic_name=e
     myheuristic.heuristic_value=f
-    mygraph.save()
     myheuristic.save()
-    return HttpResponseRedirect(reverse('edit'))
+    return HttpResponseRedirect(reverse('edit2'))
+
 class Graph2:
     # Initialize the class
     def __init__(self, graph_dict=None, directed=True):
@@ -219,7 +243,7 @@ def processed(request):
     heuristics = {}
     for j in heuristics2:
 
-        heuristics[str(heuristic.heuristic_name)]=int(heuristic.heuristic_value)
+        heuristics[heuristic.heuristic_name]=heuristic.heuristic_value
 
 
     heuristics = {}

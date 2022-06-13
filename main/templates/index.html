@@ -32,8 +32,8 @@
   <label for="Source">Select  your Source    : </label>
 
   <select name="Source" id="Source">
-    {%for graph in mygraph reversed%}
-    <option value="{{graph.city_name1}}">{{graph.city_name1}}</option>
+    {%for heuristic in myheuristic reversed%}
+    <option value="{{heuristic.heuristic_name}}">{{heuristic.heuristic_name}}</option>
     {%endfor%}
   </select>
 
@@ -51,6 +51,7 @@
     <input type="submit" value="SUBMIT"style="background-color: #2b2301; color: #fff; display: inline-block; padding: 3px 10px; font-weight: bold; border-radius: 5px;">
 </form>
 <p style="text-align:center;"><strong>To edit existing cities : </strong><a href="{% url 'edit' %}" style="background-color: #2b2301; color: #fff; display: inline-block; padding: 3px 10px; font-weight: bold; border-radius: 5px;">EDIT</a></p>
+<p style="text-align:center;"><strong>To edit existing cities : </strong><a href="{% url 'edit2' %}" style="background-color: #2b2301; color: #fff; display: inline-block; padding: 3px 10px; font-weight: bold; border-radius: 5px;">EDIT2</a></p>
 
 
 

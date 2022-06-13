@@ -13,17 +13,3 @@ Actual Distance:<br>
 <br><br>
 <input type="submit" value="Submit">
 </form>
-
-<h1>Update Heuristic</h1>
-
-<form action="addheuristic/{{ myheuristic.id }}" method="post">
-{% csrf_token %}
-Heuristic Name:<br>
-<input name=" heuristic_name" value="{{ myheuristic.heuristic_name }}">
-<br><br>
-Heuristic Value:<br>
-<input name="heuristic_value" value="{{ myheuristic.heuristic_value }}">
-<br><br>
-
-<input type="submit" value="SUBMIT"style="background-color: #2b2301; color: #fff; display: inline-block; padding: 3px 10px; font-weight: bold; border-radius: 5px;">
-</form>
