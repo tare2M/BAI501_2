@@ -13,7 +13,6 @@ urlpatterns = [
     path('edit2', views.edit2, name='edit2'),
     path('add1/', views.add1, name='add1'),
     path('add2/', views.add2, name='add2'),
-
     path('add1/addform1/', views.addform1, name='addform1'),
     path('add2/addform2/', views.addform2, name='addform2'),
     #path('add/addheuristic/', views.addheuristic, name='addheuristic'),
@@ -22,6 +21,8 @@ urlpatterns = [
     path('update/<int:id>', views.update, name='update'),
     path('update2/<int:id>', views.update2, name='update2'),
     path('update/updaterecord/<int:id>', views.updaterecord, name='updaterecord'),
+    path('update/updaterecord2/<int:id>', views.updaterecord2, name='updaterecord2'),
+
     #path('index/', views.index, name="index"),
     #path('single/<slug:slug>', views.single, name="single"),
     #path('aboutus/', views.aboutus, name="aboutus"),
