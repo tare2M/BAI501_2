@@ -15,8 +15,8 @@ def index(request):
     for elt in objects:
       res += elt.city_name1+"<br>"'''
     mygraph= graph.objects.all()
-
-    return render(request, 'index.html',{'mygraph': mygraph},)
+    myheuristic=heuristic.objects.all()
+    return render(request, 'index.html',{'mygraph': mygraph},{'myheuristic': myheuristic})
 
 def edit(request):
 

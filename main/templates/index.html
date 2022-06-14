@@ -32,7 +32,7 @@
   <label for="Source">Select  your Source    : </label>
 
   <select name="Source" id="Source">
-    {%for heuristic in myheuristic reversed%}
+    {%for heuristic in myheuristic %}
     <option value="{{heuristic.heuristic_name}}">{{heuristic.heuristic_name}}</option>
     {%endfor%}
   </select>
