@@ -21,5 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main_views.index, name='index'),
     path('edit', main_views.edit, name='edit'),
+    path('edits', main_views.edits, name='edits'),
+
     path('', include('main.urls', namespace='main')),
 ]

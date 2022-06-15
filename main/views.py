@@ -14,9 +14,9 @@ def index(request):
 
     for elt in objects:
       res += elt.city_name1+"<br>"'''
-    mygraph= graph.objects.all()
+    #mygraph= graph.objects.all()
     myheuristic=heuristic.objects.all()
-    return render(request, 'index.html',{'mygraph': mygraph},{'myheuristic': myheuristic})
+    return render(request, 'index.html',{'myheuristic': myheuristic})
 
 def edit(request):
 
@@ -243,9 +243,9 @@ def processed(request):
     heuristics = {}
     for j in heuristics2:
 
-        heuristics[heuristic.heuristic_name]=heuristic.heuristic_value
+        heuristics[j.heuristic_name]=j.heuristic_value
 
-
+    '''
     heuristics = {}
 
     heuristics['Basel'] = 204
@@ -263,7 +263,7 @@ def processed(request):
     heuristics['Salzburg'] = 236
     heuristics['Wurzburg'] = 153
     heuristics['Zurich'] = 157
-    heuristics['Ulm'] = 0
+    heuristics['Ulm'] = 0'''
     # Run the search algorithm
     if request.method == 'POST':
 

@@ -10,12 +10,12 @@
     <title>F21 BAI501 Project</title>
 
 <h1 style="color: #5e9ca0; text-align: center;">F21 BAI501 Project&nbsp;</h1>
-<h2 style="color: #2e6c80; text-align: center;">A Django website using A* Algorithm to find the shortest road between two cities in Romania:</h2>
+<h2 style="color: #2e6c80; text-align: center;">A Django website using A* Algorithm to find the shortest path between any two cities:</h2>
 </head>
 
 <body>
 
-<p style="text-align: center;">By using this website you can find the shortest road between two cities in Romania you just need to select the city you want using the two-button below.</p>
+<p style="text-align: center;">By using this website you can find the shortest path between two cities , you just need to select the cities you want using the two-button below.</p>
 
 <p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;">&nbsp;</p>
@@ -41,8 +41,8 @@
   <p style="text-align: center;">
   <label for="Goal">Select your Destination:</label>
   <select name="Goal" id="Goal">
-    {%for graph in mygraph reversed%}
-    <option value="{{graph.city_name2}}">{{graph.city_name2}}</option>
+    {%for heuristic in myheuristic  %}
+    <option value="{{heuristic.heuristic_name}}">{{heuristic.heuristic_name}}</option>
     {%endfor%}
 
   </select>
@@ -50,7 +50,8 @@
   <br><br>
     <input type="submit" value="SUBMIT"style="background-color: #2b2301; color: #fff; display: inline-block; padding: 3px 10px; font-weight: bold; border-radius: 5px;">
 </form>
-<p style="text-align:center;"><strong>To edit existing cities : </strong><a href="{% url 'edit' %}" style="background-color: #2b2301; color: #fff; display: inline-block; padding: 3px 10px; font-weight: bold; border-radius: 5px;">EDIT</a></p>
+<p style="text-align:center;"><strong>To edit existing Graph : </strong><a href="{% url 'edit' %}" style="background-color: #2b2301; color: #fff; display: inline-block; padding: 3px 10px; font-weight: bold; border-radius: 5px;">EDIT Graph</a></p>
+<p style="text-align:center;"><strong>To edit existing Heuristic : </strong><a href="{% url 'edits' %}" style="background-color: #2b2301; color: #fff; display: inline-block; padding: 3px 10px; font-weight: bold; border-radius: 5px;">EDIT Heuristic</a></p>
 
 
 
