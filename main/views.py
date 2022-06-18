@@ -97,7 +97,7 @@ def update2(request, id):
     }
     return HttpResponse(template.render(context, request))
 
-def updaterecord (request, id):
+def addgraph(request, id):
     b = request.POST['city_name1']
     c = request.POST['city_name2']
     d = request.POST['actual_distance']

@@ -20,7 +20,7 @@ urlpatterns = [
     path('delete2/<int:id>', views.delete2, name='delete2'),
     path('update/<int:id>', views.update, name='update'),
     path('update2/<int:id>', views.update2, name='update2'),
-    path('update/updaterecord/<int:id>', views.updaterecord, name='updaterecord'),
+    path('update/addgraph/<int:id>', views.addgraph, name='addgraph'),
     path('update2/updaterecord2/<int:id>', views.updaterecord2, name='updaterecord2'),
 
     #path('index/', views.index, name="index"),
