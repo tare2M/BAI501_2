@@ -1,6 +1,6 @@
 <h1>Update Graph</h1>
 
-<form action="addgraph/{{ mygraph.id }}" method="post">
+<form action="updaterecord/{{ mygraph.id }}" method="post">
 {% csrf_token %}
 First City Name:<br>
 <input name="city_name1" value="{{ mygraph.city_name1 }}">

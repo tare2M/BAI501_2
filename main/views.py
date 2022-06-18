@@ -97,7 +97,7 @@ def update2(request, id):
     }
     return HttpResponse(template.render(context, request))
 
-def updaterecord(request, id):
+def updaterecord (request, id):
     b = request.POST['city_name1']
     c = request.POST['city_name2']
     d = request.POST['actual_distance']
@@ -224,8 +224,6 @@ def add_to_open(open, neighbor):
 
 def processed(request):
 
-
-
     graph2 = Graph2()
     # Create graph connections (Actual distance)
     graph3= graph.objects.all()
@@ -245,42 +243,40 @@ def processed(request):
 
         heuristics[j.heuristic_name]=j.heuristic_value
 
-    '''
-    heuristics = {}
 
-    heuristics['Basel'] = 204
-    heuristics['Bern'] = 247
-    heuristics['Frankfurt'] = 215
-    heuristics['Karlsruhe'] = 137
-    heuristics['Linz'] = 318
-    heuristics['Mannheim'] = 164
-    heuristics['Munchen'] = 120
-    heuristics['Memmingen'] = 47
-    heuristics['Nurnberg'] = 132
-    heuristics['Passau'] = 257
-    heuristics['Rosenheim'] = 168
-    heuristics['Stuttgart'] = 75
-    heuristics['Salzburg'] = 236
-    heuristics['Wurzburg'] = 153
-    heuristics['Zurich'] = 157
-    heuristics['Ulm'] = 0'''
-    # Run the search algorithm
     if request.method == 'POST':
-
-        #form = NameForm(request.POST)
-        # check whether it's valid:
-        #if form.is_valid():
 
 
         Source = request.POST["Source"]
         Goal = request.POST["Goal"]
         path = astar_search(graph2, heuristics, Source, Goal)
-            #print(path)
 
-        # Tell python to run main method
-        #if __name__ == "__main__": main()
+
+        '''
+        heuristics = {}
+
+        heuristics['Basel'] = 204
+        heuristics['Bern'] = 247
+        heuristics['Frankfurt'] = 215
+        heuristics['Karlsruhe'] = 137
+        heuristics['Linz'] = 318
+        heuristics['Mannheim'] = 164
+        heuristics['Munchen'] = 120
+        heuristics['Memmingen'] = 47
+        heuristics['Nurnberg'] = 132
+        heuristics['Passau'] = 257
+        heuristics['Rosenheim'] = 168
+        heuristics['Stuttgart'] = 75
+        heuristics['Salzburg'] = 236
+        heuristics['Wurzburg'] = 153
+        heuristics['Zurich'] = 157
+        heuristics['Ulm'] = 0'''
+
 
     else:
         return HttpResponseRedirect('/')
     return render(request, 'processed.html', {'path': path})
     #return render(request,'processed.html',{'heuristic':heuristic},{'cost':cost})
+
+
+
